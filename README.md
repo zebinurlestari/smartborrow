@@ -57,17 +57,17 @@ flowchart TD
     
     Dash --> Logout[Klik Logout]
     Logout --> End([End])
+
 erDiagram
-    USERS ||--o{ PEMINJAMAN : "mengelola"
+    USERS ||--o{ PEMINJAMAN : "manages"
     USERS {
-        int id PK
-        string name "Nama User Dinamis"
-        string email "Username Login"
+        int id
+        string name
+        string email
     }
     PEMINJAMAN {
-        int id PK
-        int user_id FK "Relasi ke Users"
-        string nama_peminjam "Input dari Dashboard"
-        string nama_barang "Detail Barang"
-        string status "Status Pinjam"
+        int id
+        int user_id
+        string nama_barang
+        string status
     }
