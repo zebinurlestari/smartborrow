@@ -27,3 +27,39 @@ Tabel:
 1. Jalankan XAMPP (Apache dan MySQL)
 2. Taruh folder project di `htdocs/`
 3. Akses melalui browser:
+
+# 🎀 NonaPinjam App
+Aplikasi manajemen peminjaman barang asrama putri yang efisien dan user-friendly.
+
+## 🚀 Fitur Utama
+* **Autentikasi & Registrasi**: Sistem login aman dengan opsi pendaftaran akun baru.
+* **Multibahasa (Localization)**: Mendukung pilihan bahasa Indonesia (ID) dan Inggris (EN).
+* **Dashboard Interaktif**: Menampilkan nama pengguna secara dinamis dan ringkasan data.
+* **Manajemen Pinjaman**: Form input pengajuan barang serta tabel kelola data (Edit/Hapus).
+
+## 📊 Activity Diagram
+Berikut adalah alur sistem dari Login hingga manajemen Dashboard:
+
+```mermaid
+flowchart TD
+    Start([Start]) --> Login[Halaman Login]
+    Login --> PunyaAkun{Sudah Punya Akun?}
+    
+    PunyaAkun -- Tidak --> Register[Register New Account]
+    Register --> Login
+    
+    PunyaAkun -- Ya --> Auth[Input Email & Password]
+    Auth --> Val{Validasi Database}
+    Val -- Gagal --> Login
+    
+    Val -- Sukses --> Dash[Dashboard NonaPinjam]
+    Dash --> Action{Pilih Aksi?}
+    
+    Action -- Ajukan Pinjaman --> Form[Isi Nama, Barang, Tanggal]
+    Action -- Kelola Data --> Table[Lihat Tabel Data]
+    
+    Form --> Simpan[Simpan ke db_smartborrow]
+    Simpan --> Dash
+    
+    Dash --> Logout[Klik Logout]
+    Logout --> End([End])
