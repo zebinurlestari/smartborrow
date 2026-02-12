@@ -58,16 +58,19 @@ flowchart TD
     Dash --> Logout[Klik Logout]
     Logout --> End([End])
 
+```markdown
+### 🗄️ Entity Relationship Diagram (ERD)
+```mermaid
 erDiagram
     USERS ||--o{ PEMINJAMAN : "manages"
     USERS {
-        int id
+        int id PK
         string name
         string email
     }
     PEMINJAMAN {
-        int id
-        int user_id
+        int id PK
+        int user_id FK
         string nama_barang
         string status
     }
