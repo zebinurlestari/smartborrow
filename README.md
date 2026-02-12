@@ -40,7 +40,6 @@ Aplikasi manajemen peminjaman barang asrama putri yang efisien dan user-friendly
 ## 📊 Activity Diagram
 Berikut adalah alur sistem dari Login hingga manajemen Dashboard:
 
-```mermaid
 flowchart TD
     Start([Start]) --> Login[Halaman Login]
     Login --> PunyaAkun{Sudah Punya Akun?}
