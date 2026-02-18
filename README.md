@@ -1,35 +1,45 @@
-# Project Sistem Peminjaman Barang (SmartBorrow)
+# 🎀 NonaPinjam App (SmartBorrow)
+Proyek ini adalah sistem manajemen peminjaman barang asrama putri berbasis web. Dibuat untuk mempermudah pendataan barang agar tidak ada lagi drama "barang hilang" atau "lupa siapa yang pinjam".
 
-Project ini adalah sistem peminjaman barang berbasis web menggunakan PHP dan MySQL.
+## 🚀 Fitur Mantap
+* **Multi-Language**: Support bahasa ID dan EN di halaman login.
+* **Auth System**: Login aman, yang belum punya akun bisa register dulu.
+* **Dashboard Dinamis**: Menampilkan greeting sesuai nama user yang login.
+* **CRUD Peminjaman**: Bisa tambah (ajukan), lihat daftar, edit, sampai hapus data peminjaman.
 
-##  Fitur yang sudah dibuat
-- Login dan Logout
-- Dashboard pengguna
-- Form Peminjaman Barang
-- Penyimpanan data ke database
-- Tampilan daftar peminjaman
+## 🛠️ Struktur Folder & File
+* `config.php`: Jembatan ke database `db_smartborrow`.
+* `login.php`: Halaman pintu masuk (autentikasi).
+* `index.php`: Dashboard utama tempat semua aksi terjadi.
+* `peminjaman.php`: Logika buat proses simpan-simpan data.
+* `daftar_peminjaman.php`: Tempat nampilin tabel data peminjaman.
 
-##  Struktur File
-- login.php
-- index.php
-- logout.php
-- config.php
-- peminjaman.php
-- daftar_peminjaman.php
+## 📊 Activity Diagram
+Alur dari user buka aplikasi sampai berhasil kelola barang:
 
-##  Database
-Nama database: db_smartborrow  
-Tabel:
-1. users (id, username, password, role)
-2. peminjaman (id, nama_peminjam, nim, barang, tanggal_pinjam, tanggal_kembali, status)
-
-## Cara Menjalankan
-1. Jalankan XAMPP (Apache dan MySQL)
-2. Taruh folder project di `htdocs/`
-3. Akses melalui browser:
-
-# 🎀 NonaPinjam App
-Aplikasi manajemen peminjaman barang asrama putri.
+```mermaid
+flowchart TD
+    Start([Start]) --> Login[Halaman Login]
+    Login --> PunyaAkun{Sudah Punya Akun?}
+    
+    PunyaAkun -- Tidak --> Register[Register New Account]
+    Register --> Login
+    
+    PunyaAkun -- Ya --> Auth[Input Email & Password]
+    Auth --> Val{Validasi Database}
+    Val -- Gagal --> Login
+    
+    Val -- Sukses --> Dash[Dashboard NonaPinjam]
+    Dash --> Action{Pilih Aktivitas}
+    
+    Action -- Ajukan Pinjaman --> Form[Isi Nama, Barang, Tanggal]
+    Action -- Kelola Data --> Table[Lihat Tabel Data]
+    
+    Form --> Simpan[Simpan ke Database]
+    Simpan --> Dash
+    
+    Dash --> Logout[Klik Logout]
+    Logout --> End([End])
 
 ## 📊 Activity Diagram
 Berikut adalah alur sistem dari Login hingga manajemen Dashboard:
