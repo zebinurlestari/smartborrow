@@ -58,3 +58,22 @@ flowchart TD
     Dash --> Logout[Klik Logout]
     Logout --> End([End])
 
+```mermaid
+erDiagram
+    USERS ||--o{ PEMINJAMAN : "melakukan"
+    USERS {
+        int id PK
+        string username
+        string password
+        string role
+    }
+    PEMINJAMAN {
+        int id PK
+        string nama_peminjam
+        string nim
+        string barang
+        date tanggal_pinjam
+        date tanggal_kembali
+        string status
+    }
+
