@@ -57,22 +57,4 @@ flowchart TD
     
     Dash --> Logout[Klik Logout]
     Logout --> End([End])
-## 🗄️ Entity Relationship Diagram (ERD)
-```mermaid
-erDiagram
-    USERS ||--o{ PEMINJAMAN : melakukan
-    USERS {
-        int id
-        string username
-        string password
-        string role
-    }
-    PEMINJAMAN {
-        int id
-        string nama_peminjam
-        string nim
-        string barang
-        date tanggal_pinjam
-        date tanggal_kembali
-        string status
-    }
+
